@@ -4,21 +4,33 @@ import "../contactForm/contactForm.css";
 function ContactForm() {
   const [fullName, setFullName] = useState("");
   const [fullNameError, setFullNameError] = useState("");
+  const [isValidName, setValidName] = useState(false);
   const [emailAddress, setEmailAddress] = useState("");
   const [emailAddressError, setEmailAddressError] = useState("");
+  const [isValidEmail, setValidEmail] = useState(false);
   const [subject, setSubject] = useState("");
   const [subjectError, setSubjectError] = useState("");
+  const [isValidSubject, setValidSubject] = useState(false);
+  const [inquiry, setInquiry] = useState("");
+  const [inquiryError, setInquiryError] = useState("");
+  const [isValidInquiry, setValidInquiry] = useState(false);
 
   function onFormSubmit(event) {
     event.preventDefault();
-    setEmailAddress("");
     setFullName("");
+    setValidName(false);
+    setEmailAddress("");
+    setValidEmail(false);
     setSubject("");
+    setValidSubject(false);
+    setInquiry("");
+    setValidInquiry(false);
+    alert("Thank you for your inqury. Your form has been submitted!");
   }
-
   function onNameChange(event) {
     const value = event.target.value;
     setFullName(value);
+    setValidName(false);
 
     if (value.trim() === "") {
       setFullNameError("Full name is required");
@@ -26,13 +38,15 @@ function ContactForm() {
       setFullNameError("Your name must have at least 3 characters");
     } else {
       setFullNameError("");
+      setValidName(true);
     }
   }
-
   function onemailAddressChange(event) {
     const value = event.target.value;
     setEmailAddress(value);
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    setValidEmail(false);
 
     if (value.trim() === "") {
       setEmailAddressError("Email is required");
@@ -40,19 +54,35 @@ function ContactForm() {
       setEmailAddressError("Please enter a valid email address");
     } else {
       setEmailAddressError("");
+      setValidEmail(true);
     }
   }
-
   function onSubjectChange(event) {
     const value = event.target.value;
     setSubject(value);
+    setValidSubject(false);
 
     if (value.trim() === "") {
-      setSubjectError("Your enquiry requires a subject");
+      setSubjectError("Your inquiry requires a subject");
     } else if (value.trim().length < 3) {
       setSubjectError("Your subject must be longer than three characters");
     } else {
       setSubjectError("");
+      setValidSubject(true);
+    }
+  }
+  function onInquiryChange(event) {
+    const value = event.target.value;
+    setInquiry(value);
+    setValidInquiry(false);
+
+    if (value.trim() === "") {
+      setInquiryError("Please write your inquiry");
+    } else if (value.trim().length < 3) {
+      setInquiryError("Your inquiry needs to be more than three characters");
+    } else {
+      setInquiryError("");
+      setValidInquiry(true);
     }
   }
 
@@ -74,24 +104,37 @@ function ContactForm() {
           placeholder="Email address"
           onChange={onemailAddressChange}
         />
-        {emailAddressError && <p class="errorMessage"> {emailAddressError}</p>}
+        {emailAddressError && (
+          <p className="errorMessage"> {emailAddressError}</p>
+        )}
         <label htmlFor="subject"> Subject</label>
         <input
           value={subject}
           placeholder="Subject"
           onChange={onSubjectChange}
         />
-        {subjectError && <p class="errorMessage"> {subjectError}</p>}
+        {subjectError && <p className="errorMessage"> {subjectError}</p>}
         <div className="input-box">
           <label> Your inquiry </label>
           <textarea
+            value={inquiry}
             name=""
             id="inputBox"
             placeholder="Enter your message"
             required
+            onChange={onInquiryChange}
           ></textarea>
+          {inquiryError && <p className="errorMessage"> {inquiryError} </p>}
         </div>
-        <button type="submit"> Submit </button>
+        <button
+          disabled={
+            !isValidEmail || !isValidName || !isValidSubject || !isValidInquiry
+          }
+          type="submit"
+        >
+          {" "}
+          Submit{" "}
+        </button>
       </form>
     </div>
   );
