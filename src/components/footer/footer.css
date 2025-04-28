@@ -1,0 +1,18 @@
+.footer {
+  display: flex;
+  background-color: white;
+  width: 100%;
+  border-top-style: outset;
+  border-top-color: whitesmoke;
+  position: absolute;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.leftText,
+.rightText {
+  margin: 0;
+  padding: 10px;
+}

@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import "../footer/footer.css";
 
-function Footer() {
-  return <section>footer</section>;
-}
-
+const Footer = () => (
+  <footer className="footer">
+    {/* <p className="leftText"> Ecommerce website - by Kine Jakobsen</p>
+    <p className="rightText"> Noroff vocation school assignment</p> */}
+  </footer>
+);
 export default Footer;

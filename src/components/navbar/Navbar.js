@@ -1,12 +1,12 @@
-import React, { useState } from "react";
 import { Routes, Route, Link as RouterLink } from "react-router-dom";
-import Contact from "../pages/ContactPage";
+import Contact from "../pages/ContactPage/ContactPage";
 import Link from "@mui/material/Link";
 import styles from "../navbar/Navbar.styles.css";
-import { SlBasket } from "react-icons/sl";
+import Cart from "../cart/cart";
+import HomePage from "../pages/homePage/homePage";
 
 function Home() {
-  return <div></div>;
+  return <HomePage />;
 }
 function ContactUs() {
   return <Contact />;
@@ -25,7 +25,7 @@ function Nav() {
         <li>
           <Link
             component={RouterLink}
-            to="/"
+            to="/homepage"
             color="inherit"
             underline="none"
             className="link"
@@ -56,8 +56,16 @@ function Nav() {
             Cart{" "}
           </Link>
         </li>
-        <li className="Icon">
-          <SlBasket />
+        <li>
+          <Link
+            component={RouterLink}
+            to="/shoppingCart"
+            color="inherit"
+            underline="none"
+            className="link"
+          >
+            <Cart />
+          </Link>
         </li>
       </ul>
     </nav>
@@ -70,6 +78,7 @@ function App() {
       <Nav />
       <Routes>
         <Route index element={<Home />} />
+        <Route path="homepage" element={<Home />} />
         <Route path="contact" element={<ContactUs />} />
         <Route path="shoppingCart" element={<ShoppingCart />} />
         <Route path="*" element={<RouteNotFound />} />

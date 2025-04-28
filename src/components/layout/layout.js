@@ -1,10 +1,15 @@
-import Navbar from "./components/navbar/Navbar";
-import Footer from "./component/footer/footer.js";
+import Navbar from "../navbar/Navbar.js";
+import Footer from "../footer/footer.js";
+import styles from "../layout/layout.css";
 
-
-
-function Layout() {
-
-}
+const Layout = ({ children }) => {
+  return (
+    <div className="layout">
+      <Navbar />
+      <main>{children}</main>
+      <Footer />
+    </div>
+  );
+};
 
 export default Layout;
