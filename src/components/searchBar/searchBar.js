@@ -1,14 +1,19 @@
-import React, { useState } from "react";
-
-const products = [
-  { id: 1, name: "random" },
-  { id: 2, name: "whatever" },
-  { id: 3, name: "test123" },
-];
+import React, { useState, useEffect } from "react";
+import fetchProducts from "../../apiComponents/fetchData";
 
 const ProductSearch = () => {
   const [search, setSearch] = useState("");
   const [filtered, setFiltered] = useState("");
+  const [products, setProducts] = useState([]);
+
+  useEffect(
+    () =>
+      async function getData() {
+        const data = await fetchProducts();
+        setProducts(data);
+      },
+    []
+  );
 
   const filterChange = (e) => {
     const value = e.target.value;
@@ -16,9 +21,9 @@ const ProductSearch = () => {
 
     if (value.length > 0) {
       const results = products.filter((product) =>
-        product.name.toLowerCase().includes(value.toLowerCase())
+        product.title.toLowerCase().includes(value.toLowerCase())
       );
-      setFiltered(results);
+      setFiltered(value ? results : []);
     } else {
       setFiltered([]);
     }

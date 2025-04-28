@@ -2,9 +2,10 @@
   display: flex;
   justify-content: center;
   flex-direction: column;
-  position: absolute;
-  right: 10 px;
-  height: 10 px;
+  position: fixed;
+  top: 50px;
+  right: 10px;
+  max-width: 90vw;
   width: 250px;
   background-color: whitesmoke;
   border: 1px solid black;
@@ -12,9 +13,11 @@
   box-shadow: 0 4px 12px grey;
   z-index: 1000;
   margin-top: 10px;
+  box-sizing: border-box;
+  overflow-wrap: break-word;
 }
 
-.cartItem {
+/* .cartItem {
   padding: 8px 0;
   border-bottom: 1px solid;
   font-size: 14px;
@@ -29,5 +32,5 @@
 }
 
 .cartTotal {
-    margin-top: 12px;
-}
+  margin-top: 12px;
+} */
