@@ -5,7 +5,7 @@ import Product from "../../../apiComponents/fetchData";
 const homePage = () => {
   return (
     <div>
-      <ProductSearch /> <Product />{" "}
+      <Product />{" "}
     </div>
   );
 };

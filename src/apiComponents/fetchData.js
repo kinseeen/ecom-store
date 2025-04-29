@@ -1,30 +1,7 @@
 import React, { useEffect, useState } from "react";
-
-function useApi(url) {
-  const [posts, setPosts] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
-  const [isError, setIsError] = useState(false);
-
-  useEffect(() => {
-    async function getData() {
-      try {
-        setIsError(false);
-        setIsLoading(true);
-        const fetchedData = await fetch(url);
-        const json = await fetchedData.json();
-        setPosts(json.data || []);
-        setIsLoading(false);
-      } catch (error) {
-        setIsError(true);
-      } finally {
-        setIsLoading(false);
-      }
-    }
-
-    getData();
-  }, [url]);
-  return { posts, isLoading, isError };
-}
+import styles from "../apiComponents/fetchData.css";
+import useApi from "../apiComponents/useApi";
+import ProductSearch from "../components/searchBar/searchBar";
 
 function App() {
   const { posts, isLoading, isError } = useApi(
@@ -40,14 +17,21 @@ function App() {
   }
 
   return (
-    <div>
+    <div className="postItemBox">
       {posts.map((post, index) => (
-        <div key={index}>
-          <h2>{post.title}</h2>
-          <p>{post.body}</p>
-          <p>{post.description}</p>
-          <p>"Price":{post.price}</p>
-          <p> "On sale": {post.discountedPrice}</p>
+        <div key={index} className="postItems">
+          <h2 className="postTitle">{post.title}</h2>
+          {post.image.url && (
+            <img
+              src={post.image.url}
+              alt={post.title}
+              className={"postImage"}
+            />
+          )}
+          <p className="PostItem">{post.body}</p>
+          <p className="PostItem">{post.description}</p>
+          <p className="PostItem">Price: {post.price}</p>
+          <p className="PostItem"> On sale: {post.discountedPrice}</p>
         </div>
       ))}
     </div>
