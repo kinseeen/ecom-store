@@ -1,9 +1,16 @@
-import { Routes, Route, Link as RouterLink } from "react-router-dom";
+import {
+  Routes,
+  Route,
+  Link as RouterLink,
+  BrowserRouter,
+} from "react-router-dom";
 import Contact from "../pages/ContactPage/ContactPage";
 import Link from "@mui/material/Link";
 import styles from "../navbar/Navbar.styles.css";
 import Cart from "../cart/cart";
 import HomePage from "../pages/homePage/homePage";
+import ItemNavigation from "../../apiComponents/fetchData.js";
+import ItemSpecificPage from "../pages/itemSpecificPage/ItemSpecificPage.js";
 
 function Home() {
   return <HomePage />;
@@ -11,6 +18,11 @@ function Home() {
 function ContactUs() {
   return <Contact />;
 }
+
+function ProductPage() {
+  return <ItemSpecificPage />;
+}
+
 function ShoppingCart() {
   return <div></div>;
 }
@@ -81,6 +93,7 @@ function App() {
         <Route path="homepage" element={<Home />} />
         <Route path="contact" element={<ContactUs />} />
         <Route path="shoppingCart" element={<ShoppingCart />} />
+        <Route path="product/:productId" element={<ProductPage />} />
         <Route path="*" element={<RouteNotFound />} />
       </Routes>
     </div>
