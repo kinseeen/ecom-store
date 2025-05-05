@@ -43,7 +43,7 @@ const ItemSpecificPage = () => {
             price={product.price}
             discountedPrice={product.discountedPrice}
           />
-          <Reviews productId={productId} />
+          <Reviews reviewsArray={product.reviews} />
         </>
       ) : (
         <p> Loading product details..</p>
