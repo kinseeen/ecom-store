@@ -18,6 +18,7 @@ const Price = ({ price, discountedPrice }) => {
       ) : (
         <p> ${pricePoint.toFixed(2)}</p>
       )}
+      <p> ${}</p>
     </div>
   );
 };

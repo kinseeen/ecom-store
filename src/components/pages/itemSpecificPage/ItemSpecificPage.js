@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Price from "../../itemPrice/itemPrice";
+import Reviews from "../../itemReview/itemReview";
 
 const ItemSpecificPage = () => {
   const { productId } = useParams();
@@ -42,6 +43,7 @@ const ItemSpecificPage = () => {
             price={product.price}
             discountedPrice={product.discountedPrice}
           />
+          <Reviews productId={productId} />
         </>
       ) : (
         <p> Loading product details..</p>
