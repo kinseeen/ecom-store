@@ -9,7 +9,7 @@ const Cart = () => {
 
   return (
     <div
-      className="cartitem"
+      className="cartItem"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
@@ -21,8 +21,9 @@ const Cart = () => {
               <ul className="cartItemList">
                 <h3> Cart </h3>
                 {cartItems.map((item) => (
-                  <li key={item.id} className="cartItem">
-                    {item.name} x {item.price}
+                  <li key={item.id} className="cartItems">
+                    <span className="itemName">{item.name}</span>
+                    <span className="itemPrice"> {item.price} </span>
                   </li>
                 ))}
               </ul>
