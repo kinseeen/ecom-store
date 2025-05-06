@@ -16,10 +16,10 @@ const Cart = () => {
       <SlBasket />{" "}
       {isHovered && (
         <div className="wholeCart">
-          <h3 className="cartTextTop"> Cart items </h3>
           {cartItems.length > 0 ? (
             <>
               <ul className="cartItemList">
+                <h3> Cart </h3>
                 {cartItems.map((item) => (
                   <li key={item.id} className="cartItem">
                     {item.name} x {item.price}

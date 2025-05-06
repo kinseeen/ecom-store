@@ -42,16 +42,18 @@ const ItemSpecificPage = () => {
                   className={"productImage"}
                 />
               )}
-              <Reviews reviewsArray={product.reviews} />
             </div>
             <div className="rightSide">
-              <h1> {product.title}</h1>
-              <p className="description"> {product.description}</p>
-              <Price
-                price={product.price}
-                discountedPrice={product.discountedPrice}
-              />
-              <StandardButton buttonText="Add to cart" />
+              <div className="rightSideInfo">
+                <h1> {product.title}</h1>
+                <p className="description"> {product.description}</p>
+                <Price
+                  price={product.price}
+                  discountedPrice={product.discountedPrice}
+                />
+                <StandardButton buttonText="Add to cart" />
+              </div>
+              <Reviews className="reviewBox" reviewsArray={product.reviews} />
             </div>
           </div>
         </>

@@ -15,7 +15,7 @@ const Reviews = ({ reviewsArray }) => {
       {error && <p> {error}</p>}
       <div>
         {reviewsArray.length === 0 ? (
-          <p> There are no reviews for this item </p>
+          <p className="noReview"> There are no reviews for this item </p>
         ) : (
           reviewsArray.map((review, index) => (
             <div key={index} className="review">

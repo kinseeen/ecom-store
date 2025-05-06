@@ -91,7 +91,10 @@ function ContactForm() {
     <div className="container">
       <form onSubmit={onFormSubmit}>
         <h2> Contact us </h2>
-        <label htmlFor="full-name"> Full Name </label>
+        <label className="inputDescriptions" htmlFor="full-name">
+          {" "}
+          Full Name{" "}
+        </label>
         <input
           value={fullName}
           type="text"
@@ -99,7 +102,10 @@ function ContactForm() {
           onChange={onNameChange}
         />
         {fullNameError && <p className="errorMessage"> {fullNameError}</p>}
-        <label htmlFor="email-address"> Your Email address</label>
+        <label className="inputDescriptions" htmlFor="email-address">
+          {" "}
+          Your Email address
+        </label>
         <input
           value={emailAddress}
           placeholder="Email address"
@@ -108,7 +114,10 @@ function ContactForm() {
         {emailAddressError && (
           <p className="errorMessage"> {emailAddressError}</p>
         )}
-        <label htmlFor="subject"> Subject</label>
+        <label className="inputDescriptions" htmlFor="subject">
+          {" "}
+          Subject
+        </label>
         <input
           value={subject}
           placeholder="Subject"
