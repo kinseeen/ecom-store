@@ -6,7 +6,7 @@ import {
 } from "react-router-dom";
 import Contact from "../pages/ContactPage/ContactPage";
 import Link from "@mui/material/Link";
-import styles from "../navbar/Navbar.styles.css";
+import  "../navbar/Navbar.styles.css";
 import Cart from "../cart/cart";
 import HomePage from "../pages/homePage/homePage";
 import ItemNavigation from "../../apiComponents/fetchData.js";

@@ -1,0 +1,39 @@
+.singleProductPage {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.productContent {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.leftSide {
+  flex: 1;
+  min-width: 300px;
+}
+
+.rightSide {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.productImage {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 8px;
+}
+
+.description {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.itemButtons {
+  display: flex;
+  gap: 10px;
+}

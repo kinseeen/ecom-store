@@ -2,6 +2,9 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Price from "../../itemPrice/itemPrice";
 import Reviews from "../../itemReview/itemReview";
+import "../itemSpecificPage/itemSpecificPage.css";
+import StandardButton from "../../buttonComponents/standardButton/standardButton";
+import NavigationButton from "../../buttonComponents/navigationButton/navigationButton";
 
 const ItemSpecificPage = () => {
   const { productId } = useParams();
@@ -27,23 +30,30 @@ const ItemSpecificPage = () => {
 
   return (
     <div className="singleProductPage">
-      {" "}
+      <NavigationButton buttonText="Go back" />{" "}
       {product ? (
         <>
-          <h1> {product.title}</h1>
-          <p> {product.description}</p>
-          {product.image.url && (
-            <img
-              src={product.image.url}
-              alt={product.title}
-              className={"productImage"}
-            />
-          )}
-          <Price
-            price={product.price}
-            discountedPrice={product.discountedPrice}
-          />
-          <Reviews reviewsArray={product.reviews} />
+          <div className="productContent">
+            <div className="leftSide">
+              {product.image.url && (
+                <img
+                  src={product.image.url}
+                  alt={product.title}
+                  className={"productImage"}
+                />
+              )}
+              <Reviews reviewsArray={product.reviews} />
+            </div>
+            <div className="rightSide">
+              <h1> {product.title}</h1>
+              <p className="description"> {product.description}</p>
+              <Price
+                price={product.price}
+                discountedPrice={product.discountedPrice}
+              />
+              <StandardButton buttonText="Add to cart" />
+            </div>
+          </div>
         </>
       ) : (
         <p> Loading product details..</p>
@@ -53,8 +63,3 @@ const ItemSpecificPage = () => {
 };
 
 export default ItemSpecificPage;
-// 1. Create a separate function for fetching data from the API
-// 2. Call endpoint with productID as parameter
-// 3. Use the data from said function, and return it here
-
-//må kunne ta inn verdi i form av id evt.

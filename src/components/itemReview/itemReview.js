@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import "../itemReview/itemReview.css";
 
 const Reviews = ({ reviewsArray }) => {
   const [error, setError] = useState(null);

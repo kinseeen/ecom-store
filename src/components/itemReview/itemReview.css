@@ -1,0 +1,29 @@
+.reviewBox {
+  border: 1px solid;
+  padding: 20px;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 600px;
+  margin: auto;
+  background-color: whitesmoke;
+}
+
+.reviewBox h2 {
+  margin-bottom: 15px;
+  text-decoration: underline;
+}
+
+.review {
+  border: 1px solid grey;
+  padding: 15px;
+  background-color: white;
+  margin: 2px;
+}
+
+.review:first-child {
+  border-top: none;
+}
+
+.review p {
+  margin: 5px 0;
+}

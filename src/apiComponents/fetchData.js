@@ -4,22 +4,9 @@ import useApi from "../apiComponents/useApi";
 import ProductSearch from "../components/searchBar/searchBar";
 import { useNavigate } from "react-router-dom";
 import { Link as RouterLink } from "react-router-dom";
+import StandardButton from "../components/buttonComponents/standardButton/standardButton";
 
-// 1. a function the fetches all products
-// 2. a function that fetches a single product
-
-/*
-function FetchProducts(){
-const { posts, isLoading, isError } = useApi(
-    "https://v2.api.noroff.dev/online-shop"
-  );}
-function FetchProduct(){
-const { posts, isLoading, isError } = useApi(
-    "https://v2.api.noroff.dev/online-shop/:id"
-  );}
-*/
-
-function FetchProducts () {
+function FetchProducts() {
   const { posts, isLoading, isError } = useApi(
     "https://v2.api.noroff.dev/online-shop"
   );
@@ -68,11 +55,11 @@ function App() {
                 )}
               </p>
               <div className="itemButtons">
-                <button onClick={() => handleViewItem(post.id)}>
-                  {" "}
-                  View item{" "}
-                </button>
-                <button> Add to cart</button>
+                <StandardButton
+                  buttonText="View item"
+                  callback={() => handleViewItem(post.id)}
+                />
+                <StandardButton buttonText="Add to cart" />
               </div>
             </div>
           ))
