@@ -1,15 +1,18 @@
+import { Outlet } from "react-router-dom";
 import Navbar from "../navbar/Navbar.js";
 import Footer from "../footer/footer.js";
-import styles from "../layout/layout.css";
+import "../layout/layout.css";
 
-const Layout = ({ children }) => {
+function Layout() {
   return (
     <div className="layout">
       <Navbar />
-      <main>{children}</main>
+      <main className="content">
+        <Outlet />
+      </main>
       <Footer />
     </div>
   );
-};
+}
 
 export default Layout;

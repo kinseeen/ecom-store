@@ -3,8 +3,8 @@
   background-color: white;
   width: 100%;
   border-top-style: outset;
-  border-top-color: whitesmoke;
-  position: absolute;
+  border-top-color: grey;
+  position: static;
   align-items: center;
   justify-content: space-between;
   padding-left: 20px;
