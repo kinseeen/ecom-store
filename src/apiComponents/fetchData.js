@@ -2,9 +2,11 @@ import React, { useEffect, useState } from "react";
 import styles from "../apiComponents/fetchData.css";
 import useApi from "../apiComponents/useApi";
 import ProductSearch from "../components/searchBar/searchBar";
+import AddToCartButton from "../components/buttonComponents/addToCartButton/addToCartButton.js";
 import { useNavigate } from "react-router-dom";
 import { Link as RouterLink } from "react-router-dom";
 import StandardButton from "../components/buttonComponents/standardButton/standardButton";
+import { useCart } from "../components/cartContext/cartContext.js";
 
 function FetchProducts() {
   const { posts, isLoading, isError } = useApi(
@@ -18,6 +20,7 @@ function App() {
   );
   const [search, setSearch] = useState("");
   const navigate = useNavigate();
+  const { addToCart } = useCart();
 
   if (isLoading) return <div className="loadingPost"> Loading posts </div>;
   if (isError) return <div className="ErrorMessage"> Error loading data</div>;
@@ -33,7 +36,7 @@ function App() {
   };
 
   return (
-    <>
+    <> 
       <ProductSearch search={search} setSearch={setSearch} />
       <div className="postItemBox">
         {filteredPosts.length > 0 ? (
@@ -59,7 +62,10 @@ function App() {
                   buttonText="View item"
                   callback={() => handleViewItem(post.id)}
                 />
-                <StandardButton buttonText="Add to cart" />
+                <AddToCartButton
+                  buttonText="Add to cart"
+                  callback={() => addToCart(post)}
+                />
               </div>
             </div>
           ))

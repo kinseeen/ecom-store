@@ -11,6 +11,7 @@ import Cart from "../cart/cart";
 import HomePage from "../pages/homePage/homePage";
 import ItemNavigation from "../../apiComponents/fetchData.js";
 import ItemSpecificPage from "../pages/itemSpecificPage/ItemSpecificPage.js";
+import CartPage from "../pages/cartPage/cartPage.js";
 
 function Home() {
   return <HomePage />;
@@ -24,7 +25,11 @@ function ProductPage() {
 }
 
 function ShoppingCart() {
-  return <div></div>;
+  return (
+    <div>
+      <CartPage />
+    </div>
+  );
 }
 function RouteNotFound() {
   return <div>Page not found</div>;
@@ -56,18 +61,7 @@ function Nav() {
             {"Contact Us"}
           </Link>
         </li>
-        <li>
-          <Link
-            component={RouterLink}
-            to="/shoppingCart"
-            color="inherit"
-            underline="none"
-            className="link"
-          >
-            {" "}
-            Cart{" "}
-          </Link>
-        </li>
+
         <li>
           <Link
             component={RouterLink}

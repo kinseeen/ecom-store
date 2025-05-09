@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import Price from "../../itemPrice/itemPrice";
 import Reviews from "../../itemReview/itemReview";
 import "../itemSpecificPage/itemSpecificPage.css";
-import StandardButton from "../../buttonComponents/standardButton/standardButton";
+import AddToCartButton from "../../buttonComponents/addToCartButton/addToCartButton.js";
 import NavigationButton from "../../buttonComponents/navigationButton/navigationButton";
 import { useCart } from "../../cartContext/cartContext.js";
 
@@ -11,6 +11,7 @@ const ItemSpecificPage = () => {
   const { productId } = useParams();
   const [product, setProduct] = useState(null);
   const [error, setError] = useState(false);
+  const { addToCart } = useCart();
 
   useEffect(() => {
     async function fetchProduct() {
@@ -52,7 +53,10 @@ const ItemSpecificPage = () => {
                   price={product.price}
                   discountedPrice={product.discountedPrice}
                 />
-                <StandardButton buttonText="Add to cart" />
+                <AddToCartButton
+                  buttonText="Add to cart"
+                  callback={() => addToCart(product)}
+                />
               </div>
               <Reviews className="reviewBox" reviewsArray={product.reviews} />
             </div>
