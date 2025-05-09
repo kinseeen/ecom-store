@@ -4,9 +4,9 @@ import {
   Link as RouterLink,
   BrowserRouter,
 } from "react-router-dom";
-import Contact from "../pages/ContactPage/ContactPage";
+import Contact from "../contactForm/contactForm.js";
 import Link from "@mui/material/Link";
-import  "../navbar/Navbar.styles.css";
+import "../navbar/Navbar.styles.css";
 import Cart from "../cart/cart";
 import HomePage from "../pages/homePage/homePage";
 import ItemNavigation from "../../apiComponents/fetchData.js";

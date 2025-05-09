@@ -5,6 +5,7 @@ import Reviews from "../../itemReview/itemReview";
 import "../itemSpecificPage/itemSpecificPage.css";
 import StandardButton from "../../buttonComponents/standardButton/standardButton";
 import NavigationButton from "../../buttonComponents/navigationButton/navigationButton";
+import { useCart } from "../../cartContext/cartContext.js";
 
 const ItemSpecificPage = () => {
   const { productId } = useParams();
