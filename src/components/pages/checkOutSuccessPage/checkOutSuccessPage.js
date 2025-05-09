@@ -1,13 +1,13 @@
 import React from "react";
-import CheckoutSuccess from "../../checkOut/checkOut.js";
+import "../checkOutSuccessPage/checkOutSuccessPage.css";
 
-const CheckoutPage = () => {
+const CheckoutSuccessPage = () => {
   return (
-    <div>
-      {" "}
-      <CheckoutSuccess />{" "}
+    <div className="checkOutPage">
+      <h1> Thank you for your order. </h1>
+      <p> Your order has been placed! </p>
     </div>
   );
 };
 
-export default CheckoutPage;
+export default CheckoutSuccessPage;

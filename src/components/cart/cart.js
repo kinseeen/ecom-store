@@ -4,8 +4,7 @@ import "../cart/cart.css";
 
 const Cart = () => {
   const [isHovered, setIsHovered] = useState(false);
-
-  const cartItems = [{ id: 1, name: "apple", price: 2 }];
+  const cartItems = [];
   const cartTotal = cartItems.reduce((total, item) => total + item.price, 0);
 
   return (

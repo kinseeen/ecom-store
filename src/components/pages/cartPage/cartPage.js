@@ -1,9 +1,17 @@
 import React from "react";
 import { useCart } from "../../cartContext/cartContext.js";
+import { useNavigate } from "react-router-dom";
 import StandardButton from "../../buttonComponents/standardButton/standardButton";
+import "./cartPage.css";
 
 const CartPage = () => {
-  const { cartItems, removeFromCart, getTotal } = useCart();
+  const { cartItems, removeFromCart, getTotal, clearCart } = useCart();
+  const navigate = useNavigate();
+
+  const handleCheckout = () => {
+    clearCart();
+    navigate("/checkOutSuccess");
+  };
 
   return (
     <div className="cartPage">
@@ -14,12 +22,12 @@ const CartPage = () => {
         <>
           <ul className="cartItemList">
             {cartItems.map((item) => (
-              <li key={item.id} className="cartItem">
+              <li key={item.id} className="shoppingCartItem">
                 <div>
                   <p className="itemTitle"> {item.title}</p>
                   <p>Price: {item.price}</p>
                   <p>Quantity: {item.quantity}</p>
-                  <p>Subtotal: {item.price * item.quantity}</p>
+                  <p>Subtotal: {item.price.toFixed(2) * item.quantity}</p>
                 </div>
                 <StandardButton
                   buttonText="Remove"
@@ -28,7 +36,9 @@ const CartPage = () => {
               </li>
             ))}
           </ul>
-          <h2> Total: {getTotal()}</h2>
+          <h2> Total: {getTotal().toFixed(2)}</h2>
+
+          <StandardButton buttonText={"Checkout"} callback={handleCheckout} />
         </>
       )}
     </div>
