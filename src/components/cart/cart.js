@@ -1,11 +1,22 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { SlBasket } from "react-icons/sl";
 import "../cart/cart.css";
 import { useCart } from "../cartContext/cartContext.js";
 
 const Cart = () => {
   const [isHovered, setIsHovered] = useState(false);
-  const cartItems = useCart();
+  const [isAdded, setIsAdded] = useState(false);
+  const { cartItems } = useCart();
+
+  useEffect(() => {
+    if (cartItems.length > 0) {
+      setIsAdded(true);
+      const timer = setTimeout(() => {
+        setIsAdded(false);
+      }, 2000);
+      return () => clearTimeout(timer);
+    }
+  }, [cartItems]);
 
   return (
     <div
@@ -14,22 +25,34 @@ const Cart = () => {
       onMouseLeave={() => setIsHovered(false)}
     >
       <SlBasket />{" "}
-      {isHovered && (
+      {(isHovered || isAdded) && (
         <div className="wholeCart">
+          <h3> Cart </h3>
           {cartItems.length > 0 ? (
             <>
               <ul className="cartItemList">
-                <h3> Cart </h3>
                 {cartItems.map((item) => (
-                  <li key={item.id} className="cartItems">
-                    <span className="itemName">{item.name}</span>
+                  <li key={item.id} className="cartItemRow">
+                    <span className="itemQuantity"> {item.quantity} x </span>
+                    <span className="itemName">{item.title}</span>
                     <span className="itemPrice"> {item.price} </span>
                   </li>
                 ))}
               </ul>
+              <div className="cartTotal">
+                <p>
+                  Total:{" "}
+                  {cartItems
+                    .reduce(
+                      (total, item) => total + item.price * item.quantity,
+                      0
+                    )
+                    .toFixed(2)}
+                </p>
+              </div>{" "}
             </>
           ) : (
-            <p> Your cart is empty</p>
+            <p className= "emptyCart"> Your cart is empty</p>
           )}
         </div>
       )}{" "}
