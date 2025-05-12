@@ -1,3 +1,19 @@
 .checkOutPage {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 100vh;
+}
 
+.checkOutPage h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  color: #a881af;
+}
+
+.checkOutPage p {
+  font-size: 1.5rem;
+  color: #80669d;
 }

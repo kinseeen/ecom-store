@@ -48,3 +48,14 @@
   width: 100%;
   box-shadow: 0 0 10px #80669d;
 }
+
+@media (max-width: 768px) {
+  .productContent {
+    flex-direction: column;
+  }
+
+  .leftSide,
+  .rightSide {
+    width: 100%;
+  }
+}
