@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { SlBasket } from "react-icons/sl";
 import "../cart/cart.css";
 import { useCart } from "../cartContext/cartContext.js";
@@ -7,15 +7,18 @@ const Cart = () => {
   const [isHovered, setIsHovered] = useState(false);
   const [isAdded, setIsAdded] = useState(false);
   const { cartItems } = useCart();
+  const prevCartLength = useRef(cartItems.length);
 
   useEffect(() => {
-    if (cartItems.length > 0) {
+    if (cartItems.length > prevCartLength.current) {
       setIsAdded(true);
       const timer = setTimeout(() => {
         setIsAdded(false);
       }, 2000);
       return () => clearTimeout(timer);
     }
+
+    prevCartLength.current = cartItems.length;
   }, [cartItems]);
 
   return (
@@ -52,7 +55,7 @@ const Cart = () => {
               </div>{" "}
             </>
           ) : (
-            <p className= "emptyCart"> Your cart is empty</p>
+            <p className="emptyCart"> Your cart is empty</p>
           )}
         </div>
       )}{" "}
