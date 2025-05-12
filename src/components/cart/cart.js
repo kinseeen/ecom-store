@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { SlBasket } from "react-icons/sl";
 import "../cart/cart.css";
+import { useCart } from "../cartContext/cartContext.js";
 
 const Cart = () => {
   const [isHovered, setIsHovered] = useState(false);
-  const cartItems = [];
-  const cartTotal = cartItems.reduce((total, item) => total + item.price, 0);
+  const cartItems = useCart();
 
   return (
     <div
@@ -27,9 +27,6 @@ const Cart = () => {
                   </li>
                 ))}
               </ul>
-              <div className="cartTotal">
-                <h2> Total: </h2> {cartTotal}
-              </div>
             </>
           ) : (
             <p> Your cart is empty</p>
