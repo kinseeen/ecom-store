@@ -13,6 +13,7 @@ import ItemNavigation from "../../apiComponents/fetchData.js";
 import ItemSpecificPage from "../pages/itemSpecificPage/ItemSpecificPage.js";
 import CartPage from "../pages/cartPage/cartPage.js";
 import CheckoutSuccessPage from "../pages/checkOutSuccessPage/checkOutSuccessPage.js";
+import logo from "../../images/freepik__background__55751.png";
 
 function Home() {
   return <HomePage />;
@@ -41,10 +42,22 @@ function RouteNotFound() {
   return <div>Page not found</div>;
 }
 
+function LogoImage() {
+  return (
+    <RouterLink to="/homepage">
+      <img src={logo} alt="Logoimage" className="logo" />
+    </RouterLink>
+  );
+}
+
 function Nav() {
   return (
     <nav className="navigation">
-      <ul>
+      <ul className="leftSideNav">
+        <LogoImage />
+      </ul>
+      <ul className="MiddleNav"></ul>
+      <ul className="rightSideNav">
         <li>
           <Link
             component={RouterLink}
