@@ -27,7 +27,7 @@ const CartPage = () => {
                   <p className="itemTitle"> {item.title}</p>
                   <p>Price: {item.price}</p>
                   <p>Quantity: {item.quantity}</p>
-                  <p>Subtotal: {item.price.toFixed(2) * item.quantity}</p>
+                  <p>Subtotal:${(item.price * item.quantity).toFixed(2)}</p>
                 </div>
                 <StandardButton
                   buttonText="Remove"
