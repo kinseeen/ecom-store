@@ -64,3 +64,23 @@
   border-top: 1px solid #ddd;
   background-color: #fff;
 }
+
+.cartIconWrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.cartBadge {
+  position: absolute;
+  top: 4px;
+  right: -1px;
+  color: black;
+  font-size: 10px;
+  padding: 2px 7px;
+  border-radius: 50%;
+  z-index: 10;
+}
+
+.cartIcon {
+  font-size: 27px;
+}

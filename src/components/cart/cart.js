@@ -37,7 +37,14 @@ const Cart = () => {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <SlBasket />{" "}
+      <div className="cartIconWrapper">
+        <SlBasket className="cartIcon" />
+        {cartItems.length > 0 && (
+          <span className="cartBadge">
+            {cartItems.reduce((total, item) => total + item.quantity, 0)}
+          </span>
+        )}
+      </div>{" "}
       {(isHovered || isAdded) && (
         <div className="wholeCart">
           <h3> Cart </h3>

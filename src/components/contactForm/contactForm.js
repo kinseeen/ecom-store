@@ -18,6 +18,7 @@ function ContactForm() {
 
   function onFormSubmit(event) {
     event.preventDefault();
+    console.log({ fullName, emailAddress, subject, inquiry });
     setFullName("");
     setValidName(false);
     setEmailAddress("");
