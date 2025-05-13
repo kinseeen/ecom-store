@@ -8,9 +8,19 @@ const Cart = () => {
   const [isAdded, setIsAdded] = useState(false);
   const { cartItems } = useCart();
   const prevCartLength = useRef(cartItems.length);
+  const didMount = useRef(false);
 
   useEffect(() => {
-    if (cartItems.length > prevCartLength.current) {
+    if (!didMount.current) {
+      // First render: don't run logic, just initialize the ref
+      prevCartLength.current = cartItems.length;
+      didMount.current = true;
+      return;
+    }
+    const prevLength = prevCartLength.current;
+    console.log("current cart count: " + cartItems.length);
+    console.log("prev cart count: " + prevLength);
+    if (cartItems.length > prevLength) {
       setIsAdded(true);
       const timer = setTimeout(() => {
         setIsAdded(false);

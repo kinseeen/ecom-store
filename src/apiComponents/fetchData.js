@@ -36,7 +36,7 @@ function App() {
   };
 
   return (
-    <> 
+    <>
       <ProductSearch search={search} setSearch={setSearch} />
       <div className="postItemBox">
         {filteredPosts.length > 0 ? (
