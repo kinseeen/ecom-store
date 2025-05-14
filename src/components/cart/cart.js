@@ -7,28 +7,35 @@ const Cart = () => {
   const [isHovered, setIsHovered] = useState(false);
   const [isAdded, setIsAdded] = useState(false);
   const { cartItems } = useCart();
-  const prevCartLength = useRef(cartItems.length);
+  let prevCartLength = useRef(cartItems.length);
   const didMount = useRef(false);
 
   useEffect(() => {
     if (!didMount.current) {
+      console.log("hello from didmount.");
       // First render: don't run logic, just initialize the ref
       prevCartLength.current = cartItems.length;
       didMount.current = true;
       return;
     }
     const prevLength = prevCartLength.current;
-    console.log("current cart count: " + cartItems.length);
+
+    const totalQuantity = cartItems.reduce(
+      (sum, item) => sum + item.quantity,
+      0
+    );
+    prevCartLength.current = totalQuantity;
+    console.log(totalQuantity);
+
+    console.log("current cart count: " + totalQuantity);
     console.log("prev cart count: " + prevLength);
-    if (cartItems.length > prevLength) {
+    if (totalQuantity > prevLength) {
       setIsAdded(true);
       const timer = setTimeout(() => {
         setIsAdded(false);
       }, 2000);
       return () => clearTimeout(timer);
     }
-
-    prevCartLength.current = cartItems.length;
   }, [cartItems]);
 
   return (
