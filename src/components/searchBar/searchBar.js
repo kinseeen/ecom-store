@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react";
-import products from "../../apiComponents/fetchData";
+import React from "react";
 
 const ProductSearch = ({ search, setSearch }) => {
   const filterChange = (e) => {

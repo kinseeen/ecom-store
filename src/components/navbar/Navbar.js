@@ -1,15 +1,10 @@
-import {
-  Routes,
-  Route,
-  Link as RouterLink,
-  BrowserRouter,
-} from "react-router-dom";
+import { Routes, Route, Link as RouterLink } from "react-router-dom";
 import Contact from "../contactForm/contactForm.js";
 import Link from "@mui/material/Link";
 import "../navbar/Navbar.styles.css";
 import Cart from "../cart/cart";
 import HomePage from "../pages/homePage/homePage";
-import ItemNavigation from "../../apiComponents/fetchData.js";
+
 import ItemSpecificPage from "../pages/itemSpecificPage/ItemSpecificPage.js";
 import CartPage from "../pages/cartPage/cartPage.js";
 import CheckoutSuccessPage from "../pages/checkOutSuccessPage/checkOutSuccessPage.js";
@@ -32,10 +27,6 @@ function ShoppingCart() {
       <CartPage />
     </div>
   );
-}
-
-function CheckOutSuccess() {
-  return <CheckoutSuccessPage />;
 }
 
 function RouteNotFound() {

@@ -12,8 +12,6 @@ const Cart = () => {
 
   useEffect(() => {
     if (!didMount.current) {
-      console.log("hello from didmount.");
-      // First render: don't run logic, just initialize the ref
       prevCartLength.current = cartItems.length;
       didMount.current = true;
       return;

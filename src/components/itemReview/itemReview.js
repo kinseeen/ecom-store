@@ -2,13 +2,8 @@ import React, { useState, useEffect } from "react";
 import "../itemReview/itemReview.css";
 
 const Reviews = ({ reviewsArray }) => {
-  const [error, setError] = useState(null);
+  const [error] = useState(null);
 
-  /* useEffect(() => {
-    async function fetchReviews(reviews) {}
-  }, [productId]); */
-  /* setReviews(reviewsArray);
-  console.log(reviews); */
   return (
     <div className="reviewBox">
       <h2> Reviews </h2>
