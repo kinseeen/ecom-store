@@ -1,4 +1,4 @@
-import React, { useState, useForm } from "react";
+import React, { useState } from "react";
 import "../contactForm/contactForm.css";
 
 function ContactForm() {

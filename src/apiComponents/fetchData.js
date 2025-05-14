@@ -1,18 +1,18 @@
-import React, { useEffect, useState } from "react";
-import styles from "../apiComponents/fetchData.css";
+import React, { useState } from "react";
+import "../apiComponents/fetchData.css";
 import useApi from "../apiComponents/useApi";
 import ProductSearch from "../components/searchBar/searchBar";
 import AddToCartButton from "../components/buttonComponents/addToCartButton/addToCartButton.js";
 import { useNavigate } from "react-router-dom";
-import { Link as RouterLink } from "react-router-dom";
+// import { Link as RouterLink } from "react-router-dom";
 import StandardButton from "../components/buttonComponents/standardButton/standardButton";
 import { useCart } from "../components/cartContext/cartContext.js";
 
-function FetchProducts() {
-  const { posts, isLoading, isError } = useApi(
-    "https://v2.api.noroff.dev/online-shop"
-  );
-}
+// function FetchProducts() {
+//   const { posts, isLoading, isError } = useApi(
+//     "https://v2.api.noroff.dev/online-shop"
+//   );
+// }
 
 function App() {
   const { posts, isLoading, isError } = useApi(
