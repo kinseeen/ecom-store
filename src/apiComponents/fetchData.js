@@ -52,11 +52,11 @@ function App() {
               )}
               <p className="PostItem">{post.body}</p>
               <p className="PostItem">Price: {post.price}</p>
-              <p>
-                {post.discountedPrice !== post.price && (
-                  <p className="PostItem"> on sale: {post.discountedPrice}</p>
-                )}
-              </p>
+
+              {post.discountedPrice !== post.price && (
+                <p className="PostItem"> on sale: {post.discountedPrice}</p>
+              )}
+
               <div className="itemButtons">
                 <StandardButton
                   buttonText="View item"
