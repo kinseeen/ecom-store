@@ -7,7 +7,7 @@ const Cart = () => {
   const [isHovered, setIsHovered] = useState(false);
   const [isAdded, setIsAdded] = useState(false);
   const { cartItems } = useCart();
-  let prevCartLength = useRef(cartItems.length);
+  const prevCartLength = useRef(cartItems.length);
   const didMount = useRef(false);
 
   useEffect(() => {
@@ -23,21 +23,23 @@ const Cart = () => {
       0
     );
     prevCartLength.current = totalQuantity;
-    console.log(totalQuantity);
 
-    console.log("current cart count: " + totalQuantity);
-    console.log("prev cart count: " + prevLength);
-    if (totalQuantity > prevLength) {
+    let timer;
+
+    if (cartItems.length > 0) {
       setIsAdded(true);
-      const timer = setTimeout(() => {
+      timer = setTimeout(() => {
         setIsAdded(false);
       }, 2000);
-      return () => clearTimeout(timer);
     }
+
+    return () => {
+      if (timer) clearTimeout(timer);
+    };
   }, [cartItems]);
 
   return (
-    <div
+    <button
       className="cartItem"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
@@ -81,7 +83,7 @@ const Cart = () => {
           )}
         </div>
       )}{" "}
-    </div>
+    </button>
   );
 };
 

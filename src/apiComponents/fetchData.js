@@ -8,12 +8,6 @@ import { useNavigate } from "react-router-dom";
 import StandardButton from "../components/buttonComponents/standardButton/standardButton";
 import { useCart } from "../components/cartContext/cartContext.js";
 
-// function FetchProducts() {
-//   const { posts, isLoading, isError } = useApi(
-//     "https://v2.api.noroff.dev/online-shop"
-//   );
-// }
-
 function App() {
   const { posts, isLoading, isError } = useApi(
     "https://v2.api.noroff.dev/online-shop"

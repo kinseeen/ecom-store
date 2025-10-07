@@ -125,15 +125,15 @@ function ContactForm() {
         />
         {subjectError && <p className="errorMessage"> {subjectError}</p>}
         <div className="input-box">
-          <label> Your inquiry </label>
+          <label for="myInput"> Your inquiry </label>
           <textarea
             value={inquiry}
             name=""
-            id="inputBox"
+            id="myInput"
             placeholder="Enter your message"
             required
             onChange={onInquiryChange}
-          ></textarea>
+          />
           {inquiryError && <p className="errorMessage"> {inquiryError} </p>}
         </div>
         <button
