@@ -1,70 +1,84 @@
-# Getting Started with Create React App
+# Ecom-Store
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<img width="1846" height="741" alt="Ecom-store" src="https://github.com/user-attachments/assets/d020cf73-3757-491b-b1f3-cb27f97bac43" />
 
-## Available Scripts
+### A simple overview of the use/purpose of the project.
+ - This project was created as an assignment for Noroff vocational school. The assignment focused on creating a ecommerce store, that fetched data from Noroff api, and was buildt with react router.
 
-In the project directory, you can run:
 
-### `npm start`
+### Add a more detailed description of what your project entails and set out to do.
+This project involves building a fully functional eCommerce store using React and React Router, powered by the Noroff Online Shop API (https://v2.api.noroff.dev/online-shop).
+The app should provide a complete shopping experience — from browsing products to adding items to a cart, completing checkout, and contacting the store.
+The design must be responsive, well-structured, and maintain clean, readable code.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Core functionality: 
+1. **Homepage**
+ - Displays a list of all products fetched from the API.
+ - Includes a look-ahead search bar that filters products dynamically as the user types.
+ - Each product card shows relevant details (e.g., title, image, and price).
+ - Clicking on a product navigates the user to that product’s Individual Product Page.
+   
+2. **Individual Product Page**
+ - Fetches and displays data for a single product using its product ID (e.g., https://v2.api.noroff.dev/online-shop/{id}).
+ - Displays: Product title, Description, Image, Price (using the discountedPrice property), Discount calculation if price and discountedPrice differ and Reviews, if available
+ - Includes an Add to Cart button: Adds the product to the user’s cart and Updates the cart icon in the header with the new item count
+   
+3. **Cart Page**
+ - Displays a list of all items in the cart with:
+ - Product title
+ - Quantity
+ - Individual price
+ - Total price
+ - Calculates and displays the cart total.
+ - Contains a Checkout button that leads to the Checkout Success Page.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+4. **Checkout Success Page**
+ - Confirms that the user’s order was successful.
+ - Displays a friendly confirmation message.
+ - Includes a link back to the store (Homepage).
+ - Clears the cart upon arrival on this page.
 
-### `npm test`
+5. **Contact Page**
+- Contains a contact form with the following fields:
+ - Full Name (required, min 3 characters)
+ - Subject (required, min 3 characters)
+- Email (required, must be valid)
+- Body/Message (required, min 3 characters)
+ - Includes form validation to ensure all fields meet the requirements before submission
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+### Built With
+    React.js
+    Bootstrap
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Getting Started
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Installing
+First, open your terminal (or Git Bash / command prompt) and run:
 
-### `npm run eject`
+bash
+git clone https://github.com/kinseeen/ecom-store.git
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Next, navigate into the project directory:
+cd ecom-store
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Install the dependencies:
+npm install
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Once all the dependencies have been installed, you can start the app by running: 
+npm start
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+This will launch the development server and automatically open the app in your default web browser. By default, it should run at: 
+http://localhost:3000
 
-## Learn More
+### Contact
+My linkedin page: https://www.linkedin.com/in/kine-jakobsen-89b618163/
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-### Making a Progressive Web App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
