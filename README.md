@@ -49,7 +49,6 @@ Core functionality:
 
 ### Built With
     React.js
-    Bootstrap
 
 ### Getting Started
 
